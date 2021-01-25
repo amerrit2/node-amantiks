@@ -1,0 +1,28 @@
+{
+  "name": "antiks-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Monorepo contains @anitks packages",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amerrit2/node-antiks.git"
+  },
+  "author": "Adam Merritt <amerrit2@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/amerrit2/node-antiks/issues"
+  },
+  "homepage": "https://github.com/amerrit2/node-antiks#readme",
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.14.1",
+    "@typescript-eslint/parser": "^4.14.1",
+    "eslint": "^7.18.0",
+    "lerna": "^3.22.1",
+    "prettier": "^2.2.1",
+    "typescript": "^4.1.3"
+  }
+}
