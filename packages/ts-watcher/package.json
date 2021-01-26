@@ -1,6 +1,6 @@
 {
   "name": "@antiks/ts-watcher",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "bin": "./lib/cli.js",
   "description": "tsc --watch + clean up build files on source deletion",
   "keywords": [
