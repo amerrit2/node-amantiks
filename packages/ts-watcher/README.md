@@ -1,11 +1,11 @@
-# `@antiks/ts-watcher`
+# `@amantiks/ts-watcher`
 
 > TODO: description
 
 ## Usage
 
 ```
-const tsWatcher = require('@antiks/ts-watcher');
+const tsWatcher = require('@amantiks/ts-watcher');
 
 // TODO: DEMONSTRATE API
 ```

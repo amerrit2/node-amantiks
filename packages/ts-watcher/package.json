@@ -1,5 +1,5 @@
 {
-  "name": "@antiks/ts-watcher",
+  "name": "@amantiks/ts-watcher",
   "version": "0.1.0",
   "bin": "./lib/cli.js",
   "description": "tsc --watch + clean up build files on source deletion",
@@ -9,21 +9,23 @@
     "clean"
   ],
   "author": "Adam Merritt <amerrit2@gmail.com>",
-  "homepage": "https://github.com/amerrit2/node-antiks/tree/master/packages/ts-watcher#readme",
+  "homepage": "https://github.com/amerrit2/node-amantiks/tree/master/packages/ts-watcher#readme",
   "license": "ISC",
   "files": [
-    "lib"
+    "lib/**/*.js",
+    "lib/**/*.d.ts"
   ],
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/amerrit2/node-antiks.git"
+    "url": "git+https://github.com/amerrit2/node-amantiks.git"
   },
   "scripts": {},
   "bugs": {
-    "url": "https://github.com/amerrit2/node-antiks/issues"
+    "url": "https://github.com/amerrit2/node-amantiks/issues"
   },
   "dependencies": {
     "chokidar": "^3.5.1",
@@ -33,5 +35,5 @@
   "peerDependencies": {
     "typescript": "^4.1.3"
   },
-  "gitHead": "da495404d4da663fe56f7bbdf3d7119d62328556"
+  "gitHead": "f16116cf1e60f41aa240ad6676c9cbd8f20034cb"
 }

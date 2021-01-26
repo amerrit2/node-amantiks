@@ -1,8 +1,8 @@
 {
-  "name": "antiks-monorepo",
+  "name": "amantiks-monorepo",
   "version": "1.0.0",
   "private": true,
-  "description": "Monorepo contains @anitks packages",
+  "description": "Monorepo contains @amantiks packages",
   "scripts": {
     "prepare": "lerna bootstrap --hoist && npm run build",
     "watch": "npm run build && node ./packages/ts-watcher/lib/cli.js",
@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/amerrit2/node-antiks.git"
+    "url": "git+https://github.com/amerrit2/node-amantiks.git"
   },
   "author": "Adam Merritt <amerrit2@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/amerrit2/node-antiks/issues"
+    "url": "https://github.com/amerrit2/node-amantiks/issues"
   },
-  "homepage": "https://github.com/amerrit2/node-antiks#readme",
+  "homepage": "https://github.com/amerrit2/node-amantiks#readme",
   "dependencies": {
     "@types/node": "^14.14.22",
     "@typescript-eslint/eslint-plugin": "^4.14.1",
