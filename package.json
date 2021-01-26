@@ -4,7 +4,7 @@
   "private": true,
   "description": "Monorepo contains @anitks packages",
   "scripts": {
-    "prepare": "lerna bootstrap --hoist && ts-watcher",
+    "prepare": "lerna bootstrap --hoist && npm run build",
     "watch": "npm run build && node ./packages/ts-watcher/lib/cli.js",
     "build": "tsc"
   },
