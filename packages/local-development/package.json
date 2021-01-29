@@ -1,6 +1,6 @@
 {
   "name": "@amantiks/local-development",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Manage local development of node packages across repositories",
   "keywords": [
     "node",
@@ -32,7 +32,7 @@
     "url": "https://github.com/amerrit2/node-amantiks/issues"
   },
   "dependencies": {
-    "@amantiks/utils": "^0.2.0",
+    "@amantiks/utils": "^0.3.0",
     "ajv": "^7.0.3",
     "commander": "^7.0.0"
   },

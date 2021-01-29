@@ -1,6 +1,6 @@
 {
   "name": "@amantiks/ts-watcher",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "tsc --watch + clean up build files on source deletion",
   "keywords": [
     "typescript",
@@ -28,7 +28,7 @@
     "url": "https://github.com/amerrit2/node-amantiks/issues"
   },
   "dependencies": {
-    "@amantiks/utils": "^0.2.0",
+    "@amantiks/utils": "^0.3.0",
     "chokidar": "^3.5.1",
     "commander": "^7.0.0"
   },
