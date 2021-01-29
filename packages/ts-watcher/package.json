@@ -1,7 +1,6 @@
 {
   "name": "@amantiks/ts-watcher",
   "version": "0.1.0",
-  "bin": "./lib/cli.js",
   "description": "tsc --watch + clean up build files on source deletion",
   "keywords": [
     "typescript",
@@ -11,6 +10,7 @@
   "author": "Adam Merritt <amerrit2@gmail.com>",
   "homepage": "https://github.com/amerrit2/node-amantiks/tree/master/packages/ts-watcher#readme",
   "license": "ISC",
+  "bin": "./lib/cli.js",
   "files": [
     "lib/**/*.js",
     "lib/**/*.d.ts"
@@ -28,9 +28,9 @@
     "url": "https://github.com/amerrit2/node-amantiks/issues"
   },
   "dependencies": {
+    "@amantiks/utils": "^0.1.0",
     "chokidar": "^3.5.1",
-    "commander": "^7.0.0",
-    "strip-json-comments": "^3.1.1"
+    "commander": "^7.0.0"
   },
   "peerDependencies": {
     "typescript": "^4.1.3"

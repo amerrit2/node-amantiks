@@ -2,8 +2,7 @@ import { ParsedTsconfig } from 'typescript';
 import chokidar from 'chokidar';
 import fs from 'fs';
 import path from 'path';
-import { execCommand, fileExists, readJson } from './util';
-import { resolve } from 'path';
+import { execCommand, pathExists, readJson } from '@amantiks/utils';
 
 interface TsConfig {
 	compilerOptions: ParsedTsconfig['options'];
@@ -28,7 +27,7 @@ export async function run(options: ProgramOptions, tsArgs: string[]) {
 
 		['d.ts', 'js', 'd.ts.map', 'js.map'].forEach(async (ext) => {
 			const buildFile = path.join(parsedPath.dir, `${parsedPath.name}.${ext}`);
-			if (await fileExists(buildFile)) {
+			if (await pathExists(buildFile)) {
 				try {
 					console.log(`Unlinking: ${buildFile}`);
 					await fs.promises.unlink(buildFile);

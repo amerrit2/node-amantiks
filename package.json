@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/amerrit2/node-amantiks#readme",
   "dependencies": {
+    "@types/json-schema": "^7.0.7",
     "@types/node": "^14.14.22",
     "@typescript-eslint/eslint-plugin": "^4.14.1",
     "@typescript-eslint/parser": "^4.14.1",

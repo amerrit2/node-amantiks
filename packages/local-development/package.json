@@ -1,0 +1,38 @@
+{
+  "name": "@amantiks/local-development",
+  "version": "0.1.0",
+  "description": "Manage local development of node packages across repositories",
+  "keywords": [
+    "node",
+    "local",
+    "development",
+    "symlink",
+    "linking"
+  ],
+  "author": "Adam Merritt <amerritt3@bloomberg.com>",
+  "homepage": "https://github.com/amerrit2/node-amantiks/tree/master/packages/local-development#readme",
+  "license": "ISC",
+  "bin": "lib/cli.js",
+  "files": [
+    "lib/**/*.js",
+    "lib/**/*.d.ts"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amerrit2/node-amantiks.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/amerrit2/node-amantiks/issues"
+  },
+  "dependencies": {
+    "@amantiks/utils": "^0.1.0",
+    "ajv": "^7.0.3",
+    "commander": "^7.0.0"
+  }
+}
