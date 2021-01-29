@@ -26,5 +26,6 @@
   },
   "dependencies": {
     "strip-json-comments": "^3.1.1"
-  }
+  },
+  "gitHead": "c62e3124a5faaab42302b73bcd36291815b08b66"
 }
