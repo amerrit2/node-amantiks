@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import { program } from 'commander';
 import PackageJson from '../package.json';
 import { ProgramOptions, run } from './ts_watcher';

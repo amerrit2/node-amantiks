@@ -1,8 +1,10 @@
 import Ajv from 'ajv';
 import { JSONSchema7 } from 'json-schema';
 import { pathExists, readJson } from '@amantiks/utils';
-import { resolve } from 'path';
-import { mkdir, symlink } from 'fs/promises';
+import { relative, resolve } from 'path';
+import { promises, statSync } from 'fs';
+
+const { mkdir, rmdir, symlink, lstat, unlink } = promises;
 
 const JsonSchema = <S extends JSONSchema7>(s: S) => s;
 
@@ -45,13 +47,15 @@ async function validatePath(path: string) {
 	}
 }
 
-async function linkPackages(dir: string, links: LinksJson['packageLinks']) {
+async function linkPackages(dir: string, links: LinksJson['packageLinks'], exclude?: string) {
 	const nodeModulesPath = resolve(dir, 'node_modules');
 	if (!(await pathExists(nodeModulesPath))) {
 		await mkdir(nodeModulesPath);
 	}
 
 	for (const [name, linkPath] of Object.entries(links)) {
+		if (linkPath === exclude) continue;
+		let symPath: string;
 		if (name.startsWith('@')) {
 			const [scope, packageName] = name.split('/');
 
@@ -60,17 +64,29 @@ async function linkPackages(dir: string, links: LinksJson['packageLinks']) {
 				await mkdir(scopePath);
 			}
 
-			await symlink(linkPath, resolve(scopePath, packageName), 'junction');
+			symPath = resolve(scopePath, packageName);
 		} else {
-			await symlink(linkPath, resolve(nodeModulesPath, name, 'junction'));
+			symPath = resolve(nodeModulesPath, name);
 		}
 
-		await linkPackages(linkPath, links);
+		// Figure out what exists
+		const stats = await lstat(symPath);
+		if (stats.isSymbolicLink() || stats.isFile()) {
+			console.log('Unlinking ', symPath);
+			await unlink(symPath);
+		} else if (stats.isDirectory()) {
+			await rmdir(symPath, { recursive: true });
+		}
+
+		console.log(`Linking ${relative(dir, symPath)} to ${relative(dir, linkPath)}`);
+		await symlink(linkPath, symPath, 'junction');
+		await linkPackages(linkPath, links, linkPath);
 	}
 }
 
 export async function run(options: LocalDevOptions) {
 	const configPath = resolve(process.cwd(), options.config);
+	console.log('config path: ', configPath);
 	const config: LinksJson = await readJson(configPath);
 
 	// Validate config file
@@ -83,7 +99,8 @@ export async function run(options: LocalDevOptions) {
 	const resolvedLinks = (
 		await Promise.all(
 			entries.map(async ([_, linkPath]) => {
-				const resolved = resolve(configPath, linkPath);
+				const resolved = resolve(configPath, '..', linkPath);
+				console.log('resolved: ', resolved);
 				await validatePath(resolved);
 				return resolved;
 			}),

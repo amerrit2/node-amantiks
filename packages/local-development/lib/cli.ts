@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import { program } from 'commander';
 import PackageJson from '../package.json';
 import { LocalDevOptions, run } from './local_development';
