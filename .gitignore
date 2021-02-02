@@ -1,6 +1,7 @@
 *.js
 *.d.ts
 package-lock.json
+!jest.config.js
 
 # Logs
 logs

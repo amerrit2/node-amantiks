@@ -1,6 +1,8 @@
 import { resolve } from 'path';
-import { readFile, access } from 'fs/promises';
+import { promises } from 'fs';
 import strip from 'strip-json-comments';
+
+const { readFile, access, readdir } = promises;
 
 export async function readJson(path: string) {
 	try {
@@ -18,4 +20,17 @@ export async function pathExists(path: string) {
 	} catch {
 		return false;
 	}
+}
+
+export async function getDownloadedDependencies(dir: string) {
+	return (await readdir(resolve(dir, 'node_modules'))).reduce(async (chain, folderName) => {
+		const values = await chain;
+		if (folderName.startsWith('@')) {
+			const contents = await readdir(resolve(dir, 'node_modules', folderName));
+			values.push(...contents.map((c) => `${folderName}/${c}`));
+		} else {
+			values.push(folderName);
+		}
+		return values;
+	}, Promise.resolve([] as string[]));
 }

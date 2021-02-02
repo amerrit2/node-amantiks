@@ -10,7 +10,7 @@
   "author": "Adam Merritt <amerrit2@gmail.com>",
   "homepage": "https://github.com/amerrit2/node-amantiks/tree/master/packages/ts-watcher#readme",
   "license": "ISC",
-  "bin": "./lib/cli.js",
+  "bin": "lib/cli.js",
   "files": [
     "lib/**/*.js",
     "lib/**/*.d.ts"
