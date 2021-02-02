@@ -23,10 +23,15 @@ export async function pathExists(path: string) {
 }
 
 export async function getDownloadedDependencies(dir: string) {
-	return (await readdir(resolve(dir, 'node_modules'))).reduce(async (chain, folderName) => {
+	const nodeModulesPath = resolve(dir, 'node_modules');
+	if (!(await pathExists(nodeModulesPath))) {
+		return [];
+	}
+
+	return (await readdir(nodeModulesPath)).reduce(async (chain, folderName) => {
 		const values = await chain;
 		if (folderName.startsWith('@')) {
-			const contents = await readdir(resolve(dir, 'node_modules', folderName));
+			const contents = await readdir(resolve(nodeModulesPath, folderName));
 			values.push(...contents.map((c) => `${folderName}/${c}`));
 		} else {
 			values.push(folderName);
